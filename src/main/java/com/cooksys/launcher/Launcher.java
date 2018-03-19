@@ -1,27 +1,27 @@
 package com.cooksys.launcher;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.GregorianCalendar;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.SchemaOutputResolver;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
+import javax.xml.transform.Result;
+import javax.xml.transform.stream.StreamResult;
 
 import org.wiztools.xsdgen.ParseException;
-import org.wiztools.xsdgen.XsdGen;
 
 import com.cooksys.books.Author;
 import com.cooksys.books.Book;
+import com.cooksys.books.Book.Authors;
 import com.cooksys.books.Librarian;
 import com.cooksys.books.Library;
-import com.cooksys.books.Book.Authors;
 import com.cooksys.books.Library.Books;
 import com.cooksys.books.Library.Librarians;
 
@@ -38,11 +38,16 @@ public class Launcher {
 		Library library = (Library) unmarshaller.unmarshal(new File("library.xml"));
 		marshaller.marshal(library, System.out);
 		
-		XsdGen gen = new XsdGen();
-		gen.parse(new File("library.xml"));
-		File out = new File("library.xsd");
-		gen.write(new FileOutputStream(out));
-		
+		context.generateSchema(new SchemaOutputResolver() {
+			
+			@Override
+			public Result createOutput(String namespaceUri, String suggestedFileName) throws IOException {
+				// TODO Auto-generated method stub
+				StreamResult result = new StreamResult(new File("library.xsd"));
+				result.setSystemId("library.xsd");
+				return result;
+			}
+		});
 	}
 	
 	private static Library generateLibrary() throws DatatypeConfigurationException{
