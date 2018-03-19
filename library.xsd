@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="library">
+        <xsd:complexType mixed="true">
+            <xsd:sequence>
+                <xsd:element name="name" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="location" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="address" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="librarians" minOccurs="0">
+                    <xsd:complexType mixed="true">
+                        <xsd:sequence>
+                            <xsd:element name="librarian" minOccurs="0">
+                                <xsd:complexType mixed="true">
+                                    <xsd:sequence>
+                                        <xsd:element name="firstName" minOccurs="0" type="xsd:normalizedString"/>
+                                        <xsd:element name="lastName" minOccurs="0" type="xsd:normalizedString"/>
+                                        <xsd:element name="position" minOccurs="0" type="xsd:string"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="books" minOccurs="0">
+                    <xsd:complexType mixed="true">
+                        <xsd:sequence>
+                            <xsd:element name="book" maxOccurs="unbounded">
+                                <xsd:complexType mixed="true">
+                                    <xsd:sequence>
+                                        <xsd:element name="title" minOccurs="0" type="xsd:string"/>
+                                        <xsd:element name="genre" minOccurs="0" type="xsd:normalizedString"/>
+                                        <xsd:element name="date" minOccurs="0" type="xsd:normalizedString"/>
+                                        <xsd:element name="authors" minOccurs="0">
+                                            <xsd:complexType mixed="true">
+                                                <xsd:sequence>
+                                                    <xsd:element name="author" minOccurs="0">
+                                                        <xsd:complexType mixed="true">
+                                                            <xsd:sequence>
+                                                                <xsd:element name="firstName" minOccurs="0" type="xsd:normalizedString"/>
+                                                                <xsd:element name="lastName" minOccurs="0" type="xsd:normalizedString"/>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

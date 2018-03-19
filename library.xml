@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<library>
+    <name>Nameless Library</name>
+    <location>Memphis, TN</location>
+    <address>34535 N Quail Hollow</address>
+    <librarians>
+        <librarian>
+            <firstName>Jason</firstName>
+            <lastName>Brown</lastName>
+            <position>Head Librarian</position>
+        </librarian>
+    </librarians>
+    <books>
+        <book>
+            <title>Eight Mile</title>
+            <genre>Biography</genre>
+            <date>2006-10-05T00:00:00.000-05:00</date>
+            <authors>
+                <author>
+                    <firstName>Marshall</firstName>
+                    <lastName>Mathers</lastName>
+                </author>
+            </authors>
+        </book>
+        <book>
+            <title>SuperBetter</title>
+            <genre>Self-Help/Psychology</genre>
+            <date>2015-05-25T00:00:00.000-05:00</date>
+            <authors>
+                <author>
+                    <firstName>Jane</firstName>
+                    <lastName>McGonigal</lastName>
+                </author>
+            </authors>
+        </book>
+    </books>
+</library>
